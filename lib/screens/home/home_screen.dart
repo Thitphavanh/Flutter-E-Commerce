@@ -24,33 +24,37 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(title: 'Phenomenal'),
       bottomNavigationBar: CustomNavBar(),
-      body: Column(
+      body: ListView(
         children: [
-          Container(
-            child: CarouselSlider(
-              options: CarouselOptions(
-                aspectRatio: 1.5,
-                viewportFraction: 0.9,
-                enlargeCenterPage: true,
-                enlargeStrategy: CenterPageEnlargeStrategy.height,
+          Column(
+            children: [
+              Container(
+                child: CarouselSlider(
+                  options: CarouselOptions(
+                    aspectRatio: 1.5,
+                    viewportFraction: 0.9,
+                    enlargeCenterPage: true,
+                    enlargeStrategy: CenterPageEnlargeStrategy.height,
+                  ),
+                  items: Category.categories
+                      .map(
+                        (category) => HeroCarouselCard(category: category),
+                      )
+                      .toList(),
+                ),
               ),
-              items: Category.categories
-                  .map(
-                    (category) => HeroCarouselCard(category: category),
-                  )
-                  .toList(),
-            ),
+              SectionTitle(title: 'RECOMMENDED'),
+              ProductCarousel(
+                  products: Product.products
+                      .where((product) => product.isRecommended)
+                      .toList()),
+              SectionTitle(title: 'MOST POPULAR'),
+              ProductCarousel(
+                  products: Product.products
+                      .where((product) => product.isPoppular)
+                      .toList()),
+            ],
           ),
-          SectionTitle(title: 'RECOMMENDED'),
-          ProductCarousel(
-              products: Product.products
-                  .where((product) => product.isRecommended)
-                  .toList()),
-          SectionTitle(title: 'MOST POPULAR'),
-          ProductCarousel(
-              products: Product.products
-                  .where((product) => product.isPoppular)
-                  .toList()),
         ],
       ),
     );
