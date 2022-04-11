@@ -11,7 +11,7 @@ class CatalogScreen extends StatelessWidget {
   static Route route({required Category category}) {
     return MaterialPageRoute(
       settings: RouteSettings(name: routeName),
-      builder: (_) => CatalogScreen(category: category),
+      builder: (context) => CatalogScreen(category: category),
     );
   }
 
@@ -39,7 +39,7 @@ class CatalogScreen extends StatelessWidget {
           return Center(
             child: ProductCard(
               product: categoryProducts[index],
-            
+              // widthFactor: 1.8,
             ),
           );
         },

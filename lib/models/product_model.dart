@@ -35,11 +35,20 @@ class Product extends Equatable {
       isRecommended: true,
       isPoppular: false,
     ),
+     Product(
+      name: 'iPhone 13 Pro Max',
+      category: 'iPhone 13 Pro Max',
+      imageUrl:
+          'https://cdn1.coppel.com/images/catalog/pm/2484193-2.jpg',
+      price: 16731000,
+      isRecommended: true,
+      isPoppular: true,
+    ),
     Product(
       name: 'iPhone 13 Pro Max',
       category: 'iPhone 13 Pro Max',
       imageUrl:
-          'https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone13-Pro-alpine-green-hero-2up-220308_big_carousel.jpg.slideshow-xlarge_2x.jpg',
+          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-13-pro-max-blue-select?wid=940&hei=1112&fmt=png-alpha&.v=1645552346295',
       price: 16731000,
       isRecommended: false,
       isPoppular: true,
